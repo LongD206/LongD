@@ -1,5 +1,6 @@
 package com.longd.longd.plan.db.entity;
 
+import com.longd.longd.coupleList.db.entity.CoupleList;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,10 @@ public class Plan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id = null;
 
-    private Integer coupleListId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COUPLE_LIST_ID")
+    private CoupleList coupleList;
+//    private Integer coupleListId;
     private LocalDate dateStart;
     private LocalDate dateEnd;
     private String title;

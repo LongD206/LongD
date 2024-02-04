@@ -50,7 +50,7 @@ public class PlanServiceImpl implements PlanSerivce{
         }
         //로그인 상태가 내가 지금 보고 있는 테이블의 권한이 있는지 확인 user.get().getCoupleListId() == plan.getCoupleListId()
         //테스트 환경이 아니면 or(coupleId == 1)을 지워야함
-        if( ( user != null && user.get().getCoupleListId() == plan.getCoupleListId() ) || plan.getCoupleListId() == 1 ) {
+        if( ( user != null && user.get().getCoupleListId() == plan.getCoupleList().getId() ) || plan.getCoupleList().getId() == 1 ) {
             planRepository.save(plan);
             return true;
         } else {
@@ -68,7 +68,7 @@ public class PlanServiceImpl implements PlanSerivce{
         plan = planRepository.findById(id).get();
         //로그인 상태가 내가 지금 보고 있는 테이블의 권한이 있는지 확인
         //테스트 환경이 아니면 or(coupleId == 1)을 지워야함
-        if( ( user != null && user.get().getCoupleListId() == plan.getCoupleListId() ) || plan.getCoupleListId() == 1 ) {
+        if( ( user != null && user.get().getCoupleListId() == plan.getCoupleList().getId() ) || plan.getCoupleList().getId() == 1 ) {
             planRepository.delete(plan);
             return true;
         } else {

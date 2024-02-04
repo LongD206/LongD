@@ -21,7 +21,7 @@ public class PlanController {
 
     //POST MAN 검증 완료
     @PostMapping("/add")
-    public ResponseEntity<Boolean> planAdd(@RequestBody Plan plan) {
+    public ResponseEntity<Boolean> setPlan(@RequestBody Plan plan) {
         boolean body = planSerivce.setPlan(plan);
         if (body) {
             return ResponseEntity.status(200).body(body);

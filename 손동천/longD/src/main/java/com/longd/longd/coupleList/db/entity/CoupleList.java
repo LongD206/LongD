@@ -18,8 +18,8 @@ public class CoupleList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id = null;
-    private Integer userIdA;
-    private Integer userIdB;
+    private Integer userFirst;
+    private Integer userSecond;
     private LocalDate startDay;
     private Integer oneQA_index;
     private String coupleImgUrl;
